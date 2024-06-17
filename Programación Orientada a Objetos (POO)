@@ -1,0 +1,23 @@
+# Programación Orientada a Objetos (POO)
+
+class RegistroClima:
+    def __init__(self):
+        self.temperaturas = []
+
+    def ingresar_temperatura_diaria(self):
+        for dia in range(1, 8):
+            temperatura = float(input(f"Ingrese la temperatura del día {dia}: "))
+            self.temperaturas.append(temperatura)
+
+    def calcular_promedio_semanal(self):
+        promedio = sum(self.temperaturas) / len(self.temperaturas)
+        return promedio
+
+def main():
+    registro_clima = RegistroClima()
+    registro_clima.ingresar_temperatura_diaria()
+    promedio = registro_clima.calcular_promedio_semanal()
+    print(f"El promedio semanal de temperaturas es: {promedio:.2f} °C")
+
+if __name__ == "__main__":
+    main()
