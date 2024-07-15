@@ -1,0 +1,30 @@
+class DatabaseConnection:
+    def __init__(self, db_name):
+        self.db_name = db_name
+        self.connection = None
+        self.open_connection()
+        
+    def open_connection(self):
+        # Aquí simularíamos la apertura de una conexión a la base de datos
+        self.connection = f"Conexión abierta a la base de datos {self.db_name}"
+        print(self.connection)
+        
+    def close_connection(self):
+        # Aquí simularíamos el cierre de la conexión a la base de datos
+        if self.connection:
+            print(f"Cerrando conexión a la base de datos {self.db_name}")
+            self.connection = None
+        
+    def __del__(self):
+        # El destructor se encarga de cerrar la conexión si no se ha cerrado ya
+        self.close_connection()
+
+# Uso de la clase
+if __name__ == "__main__":
+    # Creación de una instancia de DatabaseConnection
+    db_conn = DatabaseConnection("mi_base_de_datos")
+    
+    # Realizar alguna operación con la base de datos
+    # Aquí irían las operaciones de consulta, inserción, etc.
+
+    # El objeto será destruido automáticamente cuando salga del ámbito, y el destructor será llamado.
